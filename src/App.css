@@ -1,0 +1,79 @@
+/* Importing the Roboto font from Google Fonts for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global body styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Setting the default font */
+    background-color: black; /* Dark theme background */
+    color: white; /* High contrast text color for readability */
+    line-height: 1.6; /* Spacing between lines for better readability */
+}
+
+/* Container for the main content */
+.container {
+    max-width: 800px; /* Max width for readability */
+    margin: 30px auto; /* Centering the container */
+    padding: 20px; /* Padding for aesthetics */
+    text-align: center; /* Aligning content to the center */
+}
+
+/* Styling for the main title */
+.title {
+    color: #27ae60; /* Brand color for the title */
+    font-size: 2.5rem; /* Large font size for the title */
+    margin-bottom: 40px; /* Spacing below the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+}
+
+/* Grid layout for sensor displays */
+.sensor-display {
+    display: grid; /* Using grid layout for sensor items */
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 20px; /* Spacing between grid items */
+}
+
+/* Styling for individual sensor items */
+.sensor-item {
+    background-color: #333; /* Dark background for each item */
+    padding: 20px; /* Padding inside each item */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for sensor items */
+.sensor-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Larger shadow on hover */
+}
+
+/* Label styling inside sensor items */
+.sensor-item label {
+    color: #27ae60; /* Matching brand color for labels */
+    margin-bottom: 10px; /* Spacing below each label */
+    display: block; /* Block display for proper spacing */
+    font-size: 1.2rem; /* Slightly larger font size for labels */
+}
+
+/* Styling for the update button */
+.update-button {
+    background-color: #3498db; /* Primary color for the button */
+    padding: 10px 20px; /* Padding for button size */
+    border: none; /* Removing default border */
+    border-radius: 5px; /* Slightly rounded corners for the button */
+    font-size: 1rem; /* Standard font size for text */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effects */
+    margin-top: 20px; /* Spacing above the button */
+}
+
+/* Hover effect for the update button */
+.update-button:hover {
+    background-color: #2980b9; /* Darker color on hover for button */
+    transform: scale(1.05); /* Slightly enlarging the button on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .sensor-display {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+}
