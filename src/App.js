@@ -3,24 +3,21 @@ import './App.css'; // Importing CSS for styling
 
 // Main App component
 function App() {
-    // State variables to store sensor data
-    const [temperature, setTemperature] = useState('24°C'); // Temperature data
-    const [soilMoisture, setSoilMoisture] = useState('40%'); // Soil moisture data
-    const [light, setLight] = useState('300 lux'); // Ambient light data
-    const [isOn, setIsOn] = useState(true); // System status
+    const [temperature, setTemperature] = useState('24°C');
+    const [airhumidity, setAirHumidity] = useState('40%');
+    const [light, setLight] = useState('300 lux');
+    const [isOn, setIsOn] = useState(true);
 
-    // Function to handle the update of sensor data
     const handleUpdate = () => {
-      // Fetching data from Flask backend
-      fetch('http://localhost:5000/get_plant_data') 
-          .then(data => {
-              // Setting state variables with new data from backend
-              setTemperature(data.temperature);
-              setSoilMoisture(data.soilMoisture);
-              setLight(data.light);
-              setIsOn(data.isOn);
-          })
-          .catch(error => console.error('Error:', error)); // Error handling for the fetch request
+        fetch('https://localhost:8080/get_plant_data')
+            .then(response => response.json())  // Parse the JSON response
+            .then(data => {
+                setTemperature(data.temperature + '°C');  // Append '°C' to temperature
+                setAirHumidity(data.airhumidity + '%'); // Append '%' to soil moisture
+                setLight(data.light + ' lux');            // Append 'lux' to light
+                setIsOn(data.isOn);
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     // Rendering the component UI
@@ -33,10 +30,10 @@ function App() {
                     <label>Temperature</label>
                     <div>{temperature}</div>
                 </div>
-                {/* Individual sensor item for Soil Moisture */}
+                {/* Individual sensor item for Air Humidity */}
                 <div className="sensor-item">
-                    <label>Soil Moisture</label>
-                    <div>{soilMoisture}</div>
+                    <label>Air Humidity</label>
+                    <div>{airhumidity}</div>
                 </div>
                 {/* Individual sensor item for Light */}
                 <div className="sensor-item">
